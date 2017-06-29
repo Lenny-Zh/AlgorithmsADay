@@ -1,4 +1,4 @@
-package main.java.cp1_StkAndQue.p19;
+package cp1_StkAndQue.p19;
 
 import org.junit.Test;
 
