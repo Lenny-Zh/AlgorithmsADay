@@ -2,6 +2,8 @@ package cp1_StkAndQue.p13;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -29,6 +31,7 @@ public class P13_0 {
         while (!myStack.empty()) {
             System.out.println(myStack.pop());
         }
+        List<String> list = new ArrayList<String>();
     }
 
     public static void refactStack(Stack<Integer> stack){

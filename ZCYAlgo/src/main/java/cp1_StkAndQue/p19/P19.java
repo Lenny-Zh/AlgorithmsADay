@@ -2,8 +2,7 @@ package cp1_StkAndQue.p19;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/3/29 0029.
@@ -23,25 +22,25 @@ public class P19 {
     @Test
     public void testArr(){
         solutionV1(arrdemo, 3);
+        solutionV2(arrdemo,3);
     }
 
     // my method v 1.0 时间复杂度 O（ (n-w+1）* w) = O(w^2)
-    private void solutionV1(Integer[] arr , Integer w){
-        if (w<1) System.out.println("input error , w must bigger than 0");
-        else if( w == 1) {
+    private void solutionV1(Integer[] arr, Integer w) {
+        if (w < 1) System.out.println("input error , w must bigger than 0");
+        else if (w == 1) {
             System.out.println("res array is " + Arrays.toString(arr));
-        }
-        else {
-            Integer[] res = new Integer[arr.length-w+1];
+        } else {
+            Integer[] res = new Integer[arr.length - w + 1];
             // 　n-w+1  times
-            for(int index = 0 ; index < (arr.length-w+1); index ++){
+            for (int index = 0; index < (arr.length - w + 1); index++) {
                 res[index] = 0;
                 Integer[] comp = new Integer[w];
-                comp = Arrays.copyOfRange(arr, index , index + w);
+                comp = Arrays.copyOfRange(arr, index, index + w);
                 // w times
-                for (int a=0 ; a < w; a++){
-                    if (comp[a] > res[index]){
-                        res[index]=comp[a];
+                for (int a = 0; a < w; a++) {
+                    if (comp[a] > res[index]) {
+                        res[index] = comp[a];
                     }
                 }
             }
@@ -49,16 +48,41 @@ public class P19 {
         }
     }
 
-    // 书中方法 时间复杂度 O（n）
-    private void solutionV2(Integer[] arr , Integer w){
-        LinkedList<Integer> res = new LinkedList<Integer>();
-
-
-
-        for (int i=0 ; i < arr.length;i++){
-
+    /**
+     * 书中方法 再实现 时间复杂度 O（n）
+     * 利用双端队列
+     * size = 8
+     * 8-3 = 5
+ *     Integer[] arrdemo = {4,3,5,4,3,3,6,7};
+     *                      0 1 2 3 4 5 6 7
+     * */
+    private void solutionV2(Integer[] arr, Integer w) {
+        Integer[] res = new Integer[arr.length - w + 1];
+        Integer resIndex = 0;
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            while (list.size() >= 0) {
+                if (list.size() == 0) {
+                    break;
+                } else {
+                    if (arr[i] < arr[list.peekLast()]) {
+                        break;
+                    } else {
+                        list.pollLast();
+                    }
+                }
+            }
+            list.add(i);
+            if (list.peekFirst() == i - w) {
+                Integer pol = list.pollFirst();
+            }
+            if (i >= w - 1) {
+                res[resIndex++] = arr[list.peekFirst()];
+            }
         }
+        System.out.println("res2 array is " + Arrays.toString(res));
     }
+
 }
 
 
