@@ -17,12 +17,16 @@ public class P19 {
     Integer[] arr = {1,2,3,4,5,6,7,8,9,10,11,12,13};
     Integer[] arr2 = {1,3,5,2,7,6,9,8,3,5,4,7,2,5,8,9,5,6,3,1,5,7};
     Integer[] arrdemo = {4,3,5,4,3,3,6,7};
+    int[] arrdemo2 = {4,3,5,4,3,3,6,7};
+
     Integer w = 2;
 
     @Test
-    public void testArr(){
+    public void testArr() {
         solutionV1(arrdemo, 3);
-        solutionV2(arrdemo,3);
+        solutionV2(arrdemo, 3);
+        solutionV3(arrdemo, 3);
+        getMaxWindow(arrdemo2, 3);
     }
 
     // my method v 1.0 时间复杂度 O（ (n-w+1）* w) = O(w^2)
@@ -44,7 +48,7 @@ public class P19 {
                     }
                 }
             }
-            System.out.println("res array is " + Arrays.toString(res));
+            System.out.println("res0 array is " + Arrays.toString(res));
         }
     }
 
@@ -81,6 +85,47 @@ public class P19 {
             }
         }
         System.out.println("res2 array is " + Arrays.toString(res));
+    }
+
+    private void solutionV3(Integer[] arr, Integer w) {
+        Integer[] res = new Integer[arr.length - w + 1];
+        Integer resIndex = 0;
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            while (!list.isEmpty() && arr[i] >= arr[list.peekFirst()]) {
+                list.pollFirst();
+            }
+            list.add(i);
+            if (list.peekFirst() == i - w) {
+                Integer pol = list.pollFirst();
+            }
+            if (i >= w - 1) {
+                res[resIndex++] = arr[list.peekFirst()];
+            }
+        }
+        System.out.println("res3 array is " + Arrays.toString(res));
+    }
+
+    private void getMaxWindow(int[] arr, int w){
+        if (arr == null ||  w< 1 || arr.length < w){
+            System.out.println("arr error ! ");
+        }
+        LinkedList<Integer> qmax = new LinkedList<Integer>();
+        int[] res = new int[arr.length - w + 1];
+        int index = 0;
+        for( int i = 0 ; i < arr.length; i++){
+            while (!qmax.isEmpty() && arr[qmax.peekFirst()] <= arr[i]){
+                qmax.pollFirst();
+            }
+            qmax.addLast(i);
+            if (qmax.peekFirst() == i-w){
+                qmax.pollFirst();
+            }
+            if (i >= w-1 ){
+                res[index++] = arr[qmax.peekFirst()];
+            }
+        }
+        System.out.println("resX array is " + Arrays.toString(res));
     }
 
 }
