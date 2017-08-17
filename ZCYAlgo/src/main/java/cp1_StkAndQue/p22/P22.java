@@ -1,5 +1,7 @@
 package cp1_StkAndQue.p22;
 
+import org.junit.Test;
+
 /**
  * Created by Administrator on 2017/3/29 0029.
  * MaxTree定义如下:
@@ -10,8 +12,40 @@ package cp1_StkAndQue.p22;
  * 要求: 时间复杂度为O(N),额外空间复杂度为O(N)
  *
  * 难度 : 校 ***
+ *
+ * 士: ( 1 - 4) 级
+ * 尉: ( 5 - 8) 级
+ * 校: ( 9 - 12 ) 级
+ *
  */
 public class P22 {
+
+    @Test
+    public void testP22(){
+
+
+    }
+
+
+
+    private void solutionV1(int[] arr){
+
+        for (int i = 0; i < arr.length; i++) {
+
+
+        }
+
+
+    }
+
+    class Node{
+        public int value;
+        public Node left;
+        public Node right;
+        public Node(int data){
+            this.value = data;
+        }
+    }
 
 
 }
