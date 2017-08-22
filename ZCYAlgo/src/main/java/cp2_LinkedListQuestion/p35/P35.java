@@ -17,11 +17,23 @@ public class P35 {
 
     @Test
     public void testP35(){
-        LinkedList<Integer> list = ListUtil.getTestLinkedListSort();
-        System.out.println(svSingleV1(list, 1));
+//        LinkedList<Integer> list = ListUtil.getTestLinkedListSort();
+//        System.out.println(svSingleV1(list, 1));
         LinkedList<Integer> list2 = ListUtil.getTestLinkedListSort();
-        svDoubleV1(list2,2);
+//        svDoubleV1(list2,2);
+//        System.out.println(list2);
+        list2 = ListUtil.getTestLinkedListSort();
+        svSingleV2(list2, 1);
         System.out.println(list2);
+
+        list2 = ListUtil.getTestLinkedListSort();
+        svSingleV2(list2, 2);
+        System.out.println(list2);
+
+        list2 = ListUtil.getTestLinkedListSort();
+        svSingleV2(list2, 3);
+        System.out.println(list2);
+
     }
 
     private LinkedList<Integer> svSingleV1(LinkedList<Integer> list , Integer k){
@@ -51,6 +63,27 @@ public class P35 {
             tmeList.add(i);
         }
         list.addAll(tmeList);
+        return list;
+    }
+
+    // solu from book . code by myself
+    private LinkedList<Integer> svSingleV2(LinkedList<Integer> list , Integer k){
+        Integer remove = null;
+        for (Integer i : list){
+            --k;
+        }
+        if (k == 0){
+           list.remove(0);
+        }
+        if( k < 0){
+            for (Integer j : list){
+                if (k == 0){
+                    remove = j;
+                }
+                ++k;
+            }
+        }
+        list.remove(remove);
         return list;
     }
 
