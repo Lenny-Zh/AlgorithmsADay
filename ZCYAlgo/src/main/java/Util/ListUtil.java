@@ -6,6 +6,7 @@ import java.util.Vector;
 
 /**
  * Created by Administrator on 2017/8/18 0018.
+ * a util for some test collection
  */
 public class ListUtil {
 
