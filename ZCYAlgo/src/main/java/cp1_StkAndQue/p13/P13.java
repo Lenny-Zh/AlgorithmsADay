@@ -10,9 +10,8 @@ import java.util.Stack;
  * 功能: 创建一个能自动排序的栈
  * 条件: 只允许申请一个栈.可以申请新的变量,不能申请额外数据结构
  * 难度: ???
- *
  */
-public class p13 {
+public class P13 {
 
     @Test
     public void testPush() {
@@ -48,44 +47,44 @@ public class p13 {
 
 }
 
-class MyStack{
+class MyStack {
 
     private Stack<Integer> stack = new Stack<Integer>();
 
-    public boolean push(Integer num){
+    public boolean push(Integer num) {
         try {
-            if(null==num){
+            if (null == num) {
                 return false;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("error in push method : " + e.getLocalizedMessage());
         }
-        if (stack.empty() || num > stack.peek()){
+        if (stack.empty() || num > stack.peek()) {
             stack.push(num);
             return true;
-        }else {
+        } else {
             Integer tmp = stack.pop();
-            if (push(num)){
+            if (push(num)) {
                 stack.push(tmp);
             }
             return true;
         }
     }
 
-    public Integer pop(){
-        if (!stack.empty()){
+    public Integer pop() {
+        if (!stack.empty()) {
             return stack.pop();
-        }else return null;
+        } else return null;
     }
 
-    public Integer peek(){
-        if (!stack.empty()){
+    public Integer peek() {
+        if (!stack.empty()) {
             return stack.peek();
-        }else return null;
+        } else return null;
     }
 
-    public boolean isEmpty(){
-        return  stack.isEmpty();
+    public boolean isEmpty() {
+        return stack.isEmpty();
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 public class ListUtil {
 
-    public static LinkedList<Integer> getTestLinkedListSort(){
+    public static LinkedList<Integer> getTestLinkedListSort() {
         LinkedList<Integer> list = new LinkedList<Integer>();
         list.add(1);
         list.add(2);
@@ -24,7 +24,7 @@ public class ListUtil {
         return list;
     }
 
-    public static ArrayList<Integer> getTestArrayListSort(){
+    public static ArrayList<Integer> getTestArrayListSort() {
         ArrayList<Integer> list = new ArrayList<Integer>(10);
         list.add(1);
         list.add(2);
@@ -38,7 +38,7 @@ public class ListUtil {
         return list;
     }
 
-    public static Vector<Integer> getTestVectorSort(){
+    public static Vector<Integer> getTestVectorSort() {
         Vector<Integer> list = new Vector<Integer>(10);
         list.add(1);
         list.add(2);
@@ -51,9 +51,6 @@ public class ListUtil {
         list.add(9);
         return list;
     }
-
-
-
 
 
 }

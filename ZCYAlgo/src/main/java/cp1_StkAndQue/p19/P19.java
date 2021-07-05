@@ -14,10 +14,10 @@ import java.util.*;
  * 难度:尉 * *
  */
 public class P19 {
-    Integer[] arr = {1,2,3,4,5,6,7,8,9,10,11,12,13};
-    Integer[] arr2 = {1,3,5,2,7,6,9,8,3,5,4,7,2,5,8,9,5,6,3,1,5,7};
-    Integer[] arrdemo = {4,3,5,4,3,3,6,7};
-    int[] arrdemo2 = {4,3,5,4,3,3,6,7};
+    Integer[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    Integer[] arr2 = {1, 3, 5, 2, 7, 6, 9, 8, 3, 5, 4, 7, 2, 5, 8, 9, 5, 6, 3, 1, 5, 7};
+    Integer[] arrdemo = {4, 3, 5, 4, 3, 3, 6, 7};
+    int[] arrdemo2 = {4, 3, 5, 4, 3, 3, 6, 7};
 
     Integer w = 2;
 
@@ -31,8 +31,9 @@ public class P19 {
 
     // my method v 1.0 时间复杂度 O（ (n-w+1）* w) = O(w^2)
     private void solutionV1(Integer[] arr, Integer w) {
-        if (w < 1) System.out.println("input error , w must bigger than 0");
-        else if (w == 1) {
+        if (w < 1) {
+            System.out.println("input error , w must bigger than 0");
+        } else if (w == 1) {
             System.out.println("res array is " + Arrays.toString(arr));
         } else {
             Integer[] res = new Integer[arr.length - w + 1];
@@ -57,9 +58,9 @@ public class P19 {
      * 利用双端队列
      * size = 8
      * 8-3 = 5
- *     Integer[] arrdemo = {4,3,5,4,3,3,6,7};
-     *                      0 1 2 3 4 5 6 7
-     * */
+     * Integer[] arrdemo = {4,3,5,4,3,3,6,7};
+     * 0 1 2 3 4 5 6 7
+     */
     private void solutionV2(Integer[] arr, Integer w) {
         Integer[] res = new Integer[arr.length - w + 1];
         Integer resIndex = 0;
@@ -106,22 +107,22 @@ public class P19 {
         System.out.println("res3 array is " + Arrays.toString(res));
     }
 
-    private void getMaxWindow(int[] arr, int w){
-        if (arr == null ||  w< 1 || arr.length < w){
+    private void getMaxWindow(int[] arr, int w) {
+        if (arr == null || w < 1 || arr.length < w) {
             System.out.println("arr error ! ");
         }
         LinkedList<Integer> qmax = new LinkedList<Integer>();
         int[] res = new int[arr.length - w + 1];
         int index = 0;
-        for( int i = 0 ; i < arr.length; i++){
-            while (!qmax.isEmpty() && arr[qmax.peekFirst()] <= arr[i]){
+        for (int i = 0; i < arr.length; i++) {
+            while (!qmax.isEmpty() && arr[qmax.peekFirst()] <= arr[i]) {
                 qmax.pollFirst();
             }
             qmax.addLast(i);
-            if (qmax.peekFirst() == i-w){
+            if (qmax.peekFirst() == i - w) {
                 qmax.pollFirst();
             }
-            if (i >= w-1 ){
+            if (i >= w - 1) {
                 res[index++] = arr[qmax.peekFirst()];
             }
         }

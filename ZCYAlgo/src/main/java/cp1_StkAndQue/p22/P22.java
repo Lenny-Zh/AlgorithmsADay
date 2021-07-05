@@ -10,25 +10,23 @@ import org.junit.Test;
  * 3. 包括MaxTree树在内且在其中的的每一棵子树上,值最大的节点都是树的头
  * 给一个数组arr,写一个数组转换MaxTree函数,数组长度为N
  * 要求: 时间复杂度为O(N),额外空间复杂度为O(N)
- *
+ * <p>
  * 难度 : 校 ***
- *
+ * <p>
  * 士: ( 1 - 4) 级
  * 尉: ( 5 - 8) 级
  * 校: ( 9 - 12 ) 级
- *
  */
 public class P22 {
 
     @Test
-    public void testP22(){
+    public void testP22() {
 
 
     }
 
 
-
-    private void solutionV1(int[] arr){
+    private void solutionV1(int[] arr) {
 
         for (int i = 0; i < arr.length; i++) {
 
@@ -38,11 +36,12 @@ public class P22 {
 
     }
 
-    class Node{
+    class Node {
         public int value;
         public Node left;
         public Node right;
-        public Node(int data){
+
+        public Node(int data) {
             this.value = data;
         }
     }

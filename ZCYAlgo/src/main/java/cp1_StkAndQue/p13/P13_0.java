@@ -12,7 +12,6 @@ import java.util.Stack;
  * 功能: 设计一个静态方法,让传入的栈参数从大到小排列顺序
  * 条件: 静态方法中只允许申请一个栈.可以申请新的变量,不能申请额外数据结构
  * 难度: 士 *
- *
  */
 public class P13_0 {
 
@@ -34,16 +33,16 @@ public class P13_0 {
         List<String> list = new ArrayList<String>();
     }
 
-    public static void refactStack(Stack<Integer> stack){
+    public static void refactStack(Stack<Integer> stack) {
         Stack<Integer> stackH = new Stack<Integer>();
-        while (!stack.empty()){
+        while (!stack.empty()) {
             Integer tmp = stack.pop();
-            while (!stackH.empty() && tmp > stackH.peek()){
+            while (!stackH.empty() && tmp > stackH.peek()) {
                 stack.push(stackH.pop());
             }
             stackH.push(tmp);
         }
-        while (!stackH.empty()){
+        while (!stackH.empty()) {
             stack.push(stackH.pop());
         }
     }

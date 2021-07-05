@@ -10,13 +10,13 @@ import java.util.LinkedList;
  * 单链表 双链表删除倒数第k个节点
  * 实现两个函数, 删除单链表 双链表倒数第k个节点
  * 时间复杂度为 O(N) , 额外空间复杂度为  O(1)
- *
+ * <p>
  * 难度: 士兵 *
  */
 public class P35 {
 
     @Test
-    public void testP35(){
+    public void testP35() {
 //        LinkedList<Integer> list = ListUtil.getTestLinkedListSort();
 //        System.out.println(svSingleV1(list, 1));
         LinkedList<Integer> list2 = ListUtil.getTestLinkedListSort();
@@ -36,13 +36,13 @@ public class P35 {
 
     }
 
-    private LinkedList<Integer> svSingleV1(LinkedList<Integer> list , Integer k){
+    private LinkedList<Integer> svSingleV1(LinkedList<Integer> list, Integer k) {
         Integer num = list.size() - k + 1;
         int count = 0;
         Integer remove = null;
-        for (Integer i : list){
+        for (Integer i : list) {
             count++;
-            if (count == num){
+            if (count == num) {
                 remove = i;
             }
         }
@@ -51,13 +51,13 @@ public class P35 {
     }
 
 
-    private LinkedList<Integer> svDoubleV1(LinkedList<Integer> list , Integer k){
+    private LinkedList<Integer> svDoubleV1(LinkedList<Integer> list, Integer k) {
         LinkedList<Integer> tmeList = new LinkedList<Integer>();
         int count = 0;
-        while(list.size() > 0){
+        while (list.size() > 0) {
             count++;
             Integer i = list.pollLast();
-            if( count == k){
+            if (count == k) {
                 break;
             }
             tmeList.add(i);
@@ -67,17 +67,17 @@ public class P35 {
     }
 
     // solu from book . code by myself
-    private LinkedList<Integer> svSingleV2(LinkedList<Integer> list , Integer k){
+    private LinkedList<Integer> svSingleV2(LinkedList<Integer> list, Integer k) {
         Integer remove = null;
-        for (Integer i : list){
+        for (Integer i : list) {
             --k;
         }
-        if (k == 0){
-           list.remove(0);
+        if (k == 0) {
+            list.remove(0);
         }
-        if( k < 0){
-            for (Integer j : list){
-                if (k == 0){
+        if (k < 0) {
+            for (Integer j : list) {
+                if (k == 0) {
                     remove = j;
                 }
                 ++k;
