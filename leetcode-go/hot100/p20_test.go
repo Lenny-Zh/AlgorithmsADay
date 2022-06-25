@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestP19(t *testing.T) {
+func TestP20(t *testing.T) {
 	fmt.Println(isValidR("()"))
 }
 
